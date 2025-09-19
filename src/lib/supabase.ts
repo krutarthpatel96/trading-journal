@@ -33,6 +33,7 @@ export interface Trade {
     journal_id?: number;
     fees?: number; // New field
     fee_details?: FeeDetails; // New field
+    asset_class?: string;
 }
 
 // New interface for detailed fee information

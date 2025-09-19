@@ -23,6 +23,7 @@ export interface UserSettings {
         forex: string[];
         crypto: string[];
         stocks: string[];
+        futures: string[];
         [key: string]: string[];
     };
     custom_indicators: string[];
@@ -42,7 +43,7 @@ export interface TradeWithIndicators extends Trade {
     indicators?: TradeIndicator[];
 }
 
-export type AssetClass = 'forex' | 'crypto' | 'stocks' | 'custom';
+export type AssetClass = 'forex' | 'crypto' | 'stocks' | 'futures' | 'custom';
 
 // Trade entry point
 export interface TradeEntry {
@@ -67,6 +68,7 @@ export interface TradeExit {
     is_take_profit: boolean;
     execution_status: 'pending' | 'executed' | 'canceled';
     notes?: string;
+    asset_class?: 'forex' | 'crypto' | 'stocks' | 'futures' | 'custom';
 }
 
 export type TradeExitInput = Omit<TradeExit, 'id' | 'trade_id'>;

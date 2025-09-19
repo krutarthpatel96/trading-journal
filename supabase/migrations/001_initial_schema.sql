@@ -24,17 +24,17 @@ CREATE TABLE public.trades (
     symbol TEXT NOT NULL,
     entry_date TIMESTAMP WITH TIME ZONE NOT NULL,
     exit_date TIMESTAMP WITH TIME ZONE,
-    entry_price NUMERIC(15, 5) NOT NULL,
-    exit_price NUMERIC(15, 5),
-    quantity NUMERIC(15, 5) NOT NULL,
+    entry_price NUMERIC(25, 10) NOT NULL,
+    exit_price NUMERIC(25, 10),
+    quantity NUMERIC(25, 10) NOT NULL,
     direction TEXT NOT NULL CHECK (direction IN ('long', 'short')),
     status TEXT NOT NULL CHECK (status IN ('open', 'closed', 'planned')),
     strategy TEXT,
     notes TEXT,
     tags TEXT[],
-    profit_loss NUMERIC(15, 5),
-    profit_loss_percent NUMERIC(15, 5),
-    fees NUMERIC(15, 5) DEFAULT 0,
+    profit_loss NUMERIC(25, 10),
+    profit_loss_percent NUMERIC(25, 10),
+    fees NUMERIC(25, 10) DEFAULT 0,
     fee_type TEXT DEFAULT 'fixed',
     fee_details JSONB
 );
@@ -44,8 +44,8 @@ CREATE TABLE public.trade_entries (
     id SERIAL PRIMARY KEY,
     trade_id INTEGER REFERENCES public.trades(id) ON DELETE CASCADE,
     date TIMESTAMP WITH TIME ZONE NOT NULL,
-    price NUMERIC(15, 5) NOT NULL,
-    quantity NUMERIC(15, 5) NOT NULL,
+    price NUMERIC(25, 10) NOT NULL,
+    quantity NUMERIC(25, 10) NOT NULL,
     notes TEXT
 );
 
@@ -54,8 +54,8 @@ CREATE TABLE public.trade_exits (
     id SERIAL PRIMARY KEY,
     trade_id INTEGER REFERENCES public.trades(id) ON DELETE CASCADE,
     date TIMESTAMP WITH TIME ZONE,
-    price NUMERIC(15, 5),
-    quantity NUMERIC(15, 5),
+    price NUMERIC(25, 10),
+    quantity NUMERIC(25, 10),
     is_stop_loss BOOLEAN DEFAULT FALSE,
     is_take_profit BOOLEAN DEFAULT FALSE,
     execution_status TEXT DEFAULT 'pending' CHECK (execution_status IN ('pending', 'executed', 'canceled')),
@@ -87,13 +87,13 @@ CREATE TABLE public.user_settings (
     enable_registration BOOLEAN DEFAULT TRUE,
     custom_symbols TEXT[] DEFAULT '{}',
     custom_asset_classes TEXT[] DEFAULT '{}',
-    default_asset_classes JSONB DEFAULT '{"forex": ["AUD/CAD", "AUD/CHF", "AUD/JPY", "AUD/NZD", "AUD/USD","CAD/CHF", "CAD/JPY","CHF/JPY","EUR/AUD", "EUR/CAD", "EUR/CHF", "EUR/GBP", "EUR/JPY", "EUR/NZD", "EUR/USD",
-    "GBP/AUD", "GBP/CAD", "GBP/CHF", "GBP/JPY", "GBP/NZD", "GBP/USD","NZD/CAD", "NZD/CHF", "NZD/JPY", "NZD/USD","USD/CAD", "USD/CHF", "USD/JPY"], "crypto": ["BTC/USD", "ETH/USD", "XRP/USD", "LTC/USD", "BCH/USD"], "stocks": ["AAPL", "MSFT", "GOOGL", "AMZN", "META"]}',
+    default_asset_classes JSONB DEFAULT '{"forex": [], "crypto": [], "stocks": [], "futures": []}',
     custom_indicators TEXT[] DEFAULT '{}',
     default_indicators TEXT[] DEFAULT '{"RSI", "MACD", "Moving Average", "Bollinger Bands"}',
     custom_strategies TEXT[] DEFAULT '{}',
-    default_strategies TEXT[] DEFAULT '{"swing", "day", "position", "momentum", "scalp", "breakout", "trend"}'
+    default_strategies TEXT[] DEFAULT '{"2-touchpoint break", "3-touchpoint break"}'
 );
+
 
 -- Create appropriate indexes for performance
 CREATE INDEX idx_journals_user_id ON public.journals(user_id);
