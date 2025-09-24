@@ -466,7 +466,8 @@ export function TradeDrawerForm({
 		}
 
 		// Subtract fees from profit/loss
-		const netProfitLoss = profitLoss - (form.values.fees || 0);
+		// const netProfitLoss = profitLoss - (form.values.fees || 0);
+		const netProfitLoss = profitLoss;
 
 		const profitLossPercent =
 			totalEntryValue === 0 ? 0 : (netProfitLoss / totalEntryValue) * 100;
@@ -895,7 +896,7 @@ export function TradeDrawerForm({
 											label="Entry Price"
 											placeholder="Enter price"
 											min={0}
-											precision={2}
+											precision={8}
 											value={entry.price}
 											onChange={(value) =>
 												updateEntryPoint(entry.id, "price", value || 0)
@@ -908,7 +909,6 @@ export function TradeDrawerForm({
 											required
 											label="Quantity"
 											placeholder="Enter quantity"
-											min={1}
 											value={entry.quantity}
 											onChange={(value) =>
 												updateEntryPoint(entry.id, "quantity", value || 0)
@@ -989,7 +989,7 @@ export function TradeDrawerForm({
 											label="Exit Price"
 											placeholder="Enter price"
 											min={0}
-											precision={2}
+											precision={8}
 											value={exit.price || undefined}
 											onChange={(value) =>
 												updateExitPoint(exit.id, "price", value)
@@ -1001,7 +1001,6 @@ export function TradeDrawerForm({
 										<NumberInput
 											label="Quantity"
 											placeholder="Enter quantity"
-											min={1}
 											value={exit.quantity || undefined}
 											onChange={(value) =>
 												updateExitPoint(exit.id, "quantity", value)
@@ -1037,7 +1036,7 @@ export function TradeDrawerForm({
 									description="Combined fees for this trade"
 									placeholder="0.00"
 									min={0}
-									precision={2}
+									precision={8}
 									value={form.values.fees || 0}
 									onChange={(value) => form.setFieldValue("fees", value)}
 									mb="md"
@@ -1071,7 +1070,7 @@ export function TradeDrawerForm({
 												label="Entry Commission"
 												placeholder="0.00"
 												min={0}
-												precision={2}
+												precision={8}
 												value={feeDetails.entry_commission || 0}
 												onChange={(value) =>
 													updateFeeDetails("entry_commission", value)
@@ -1084,7 +1083,7 @@ export function TradeDrawerForm({
 												label="Exit Commission"
 												placeholder="0.00"
 												min={0}
-												precision={2}
+												precision={8}
 												value={feeDetails.exit_commission || 0}
 												onChange={(value) =>
 													updateFeeDetails("exit_commission", value)
@@ -1097,7 +1096,7 @@ export function TradeDrawerForm({
 												label="Swap/Overnight Fees"
 												placeholder="0.00"
 												min={0}
-												precision={2}
+												precision={8}
 												value={feeDetails.swap_fees || 0}
 												onChange={(value) =>
 													updateFeeDetails("swap_fees", value)
@@ -1110,7 +1109,7 @@ export function TradeDrawerForm({
 												label="Exchange Fees"
 												placeholder="0.00"
 												min={0}
-												precision={2}
+												precision={8}
 												value={feeDetails.exchange_fees || 0}
 												onChange={(value) =>
 													updateFeeDetails("exchange_fees", value)
@@ -1123,7 +1122,7 @@ export function TradeDrawerForm({
 												label="Other Fees"
 												placeholder="0.00"
 												min={0}
-												precision={2}
+												precision={8}
 												value={feeDetails.other_fees || 0}
 												onChange={(value) =>
 													updateFeeDetails("other_fees", value)

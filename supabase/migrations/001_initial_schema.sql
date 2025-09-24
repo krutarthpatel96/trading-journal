@@ -91,7 +91,7 @@ CREATE TABLE public.user_settings (
     custom_indicators TEXT[] DEFAULT '{}',
     default_indicators TEXT[] DEFAULT '{"RSI", "MACD", "Moving Average", "Bollinger Bands"}',
     custom_strategies TEXT[] DEFAULT '{}',
-    default_strategies TEXT[] DEFAULT '{"2-touchpoint break", "3-touchpoint break"}'
+    default_strategies TEXT[] DEFAULT '{"2-Touchpoint Break", "3-Touchpoint Break"}'
 );
 
 
