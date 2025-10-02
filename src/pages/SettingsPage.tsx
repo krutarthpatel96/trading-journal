@@ -352,22 +352,11 @@ export function SettingsPage() {
 								<Text fw={500}>Default Indicators</Text>
 								<MultiSelect
 									data={[
-										{ value: "RSI", label: "RSI (Relative Strength Index)" },
-										{
-											value: "MACD",
-											label: "MACD (Moving Average Convergence Divergence)",
-										},
-										{ value: "Moving Average", label: "Moving Average" },
-										{ value: "Bollinger Bands", label: "Bollinger Bands" },
-										{ value: "Fibonacci", label: "Fibonacci Retracement" },
-										{ value: "Stochastic", label: "Stochastic Oscillator" },
-										{
-											value: "Support/Resistance",
-											label: "Support/Resistance Levels",
-										},
-										{ value: "Trend Lines", label: "Trend Lines" },
 										{ value: "Volume", label: "Volume" },
-										{ value: "ATR", label: "ATR (Average True Range)" },
+										{ value: "EMA 9", label: "EMA 9" },
+										{ value: "EMA 11", label: "EMA 11" },
+										{ value: "CCI", label: "Commodity Channel Index" },
+										{ value: "RSI", label: "RSI (Relative Strength Index)" },
 									]}
 									placeholder="Select default indicators"
 									searchable
@@ -455,6 +444,10 @@ export function SettingsPage() {
 										{
 											value: "3-Touchpoint Break",
 											label: "3-Touchpoint Trendline Breakout",
+										},
+										{
+											value: "EMA 9&11",
+											label: "EMA 9&11",
 										},
 									]}
 									placeholder="Select default strategies"

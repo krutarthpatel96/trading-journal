@@ -120,12 +120,29 @@ export function TradeDrawerForm({
 		initialValues: {
 			symbol: "",
 			direction: "long",
-			strategy: "day",
+			strategy: "2-touchpoint break",
 			status: "open",
 			journal_id: journalId || null,
 			asset_class: "forex",
 			tags: "",
-			notes: "",
+			notes:
+				"CHECKLIST FOLLOWED[✓|X]: \n" +
+				"- Clear touchpoints [✓|X] \n" +
+				"- 1+ weeks of data [✓|X]\n" +
+				"- Clear trend [✓|X]\n" +
+				"- No Consolidation [✓|X]\n" +
+				"- Low risk setup [✓|X]\n" +
+				"- 1.5+ RR [✓|X]\n" +
+				"- Double confirmation* [✓|X]\n" +
+				"- Line too steep* [✓|X]\n" +
+				"\n" +
+				"Entry Criteria:\n\n" +
+				"Exit Criteria: [SL/TP/S&R/Safety Line]\n\n" +
+				"Risk Management: \n\n" +
+				"Trade Plan: \n\n" +
+				"Mistakes:\n\n" +
+				"Lessons Learned:\n\n" +
+				"Good:\n\n",
 			fees: 0,
 			fee_type: "fixed",
 		},
@@ -286,6 +303,10 @@ export function TradeDrawerForm({
 			{
 				value: "3-Touchpoint Break",
 				label: "3-Touchpoint Trendline Breakout",
+			},
+			{
+				value: "EMA 9&11",
+				label: "EMA 9&11",
 			},
 		];
 
@@ -823,6 +844,28 @@ export function TradeDrawerForm({
 									return strategy;
 								}}
 								{...form.getInputProps("strategy")}
+								onChange={(value) => {
+									form.setFieldValue("strategy", value);
+
+									// Update textarea based on strategy
+									if (
+										value?.toLowerCase() === "2-touchpoint break" ||
+										value?.toLowerCase() === "3-touchpoint break"
+									) {
+										form.setFieldValue(
+											"notes",
+											`CHECKLIST FOLLOWED[✓|X]: \n- Clear touchpoints [✓|X] \n- 1+ weeks of data [✓|X]\n- Clear trend [✓|X]\n- No Consolidation [✓|X]\n- Low risk setup [✓|X]\n- 1.5+ RR [✓|X]\n- Double confirmation* [✓|X]\n- Line too steep* [✓|X]\n\nEntry Criteria:\n\nExit Criteria: [SL/TP/S&R/Safety Line]\n\nRisk Management: \n\nTrade Plan: \n\nMistakes:\n\nLessons Learned:\n\nGood:\n\n`
+										);
+									} else if (value?.toLowerCase() === "ema 9&11 scalping") {
+										form.setFieldValue(
+											"notes",
+											`CHECKLIST FOLLOWED:\n- Trendline drawn? [✓|X]\n- EMA check [✓|X]\n- CCI check [✓|X]\n- RSI check[✓|X]\n- High volume? [✓|X]\n- Resistance/ support marked? [✓|X]\n- 1.5+ RR [✓|X]\n\nEntry Criteria:\n\nExit Criteria: [SL/TP/S&R]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\n\n`
+										);
+									} else {
+										// Default template for any other strategy
+										form.setFieldValue("notes", "Trade notes template...\n");
+									}
+								}}
 							/>
 							<Select
 								required
@@ -1182,7 +1225,9 @@ export function TradeDrawerForm({
 						<Textarea
 							label="Trade Notes"
 							placeholder="Add your trade notes here..."
-							minRows={4}
+							autosize
+							minRows={8}
+							maxRows={30} // optional max height
 							{...form.getInputProps("notes")}
 						/>
 					</Card>

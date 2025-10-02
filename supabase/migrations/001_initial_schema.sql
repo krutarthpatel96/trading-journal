@@ -89,9 +89,9 @@ CREATE TABLE public.user_settings (
     custom_asset_classes TEXT[] DEFAULT '{}',
     default_asset_classes JSONB DEFAULT '{"forex": [], "crypto": [], "stocks": [], "futures": []}',
     custom_indicators TEXT[] DEFAULT '{}',
-    default_indicators TEXT[] DEFAULT '{"RSI", "MACD", "Moving Average", "Bollinger Bands"}',
+    default_indicators TEXT[] DEFAULT '{"Vol", "EMA 9", "EMA 11", "CCI", "RSI"}',
     custom_strategies TEXT[] DEFAULT '{}',
-    default_strategies TEXT[] DEFAULT '{"2-Touchpoint Break", "3-Touchpoint Break"}'
+    default_strategies TEXT[] DEFAULT '{"2-Touchpoint Break", "3-Touchpoint Break", "EMA 9&11 Scalping"}'
 );
 
 

@@ -689,14 +689,13 @@ export function SupabaseProvider({ children }: { children: ReactNode }) {
 						futures: [],
 					},
 					custom_indicators: [],
-					default_indicators: [
-						"RSI",
-						"MACD",
-						"Moving Average",
-						"Bollinger Bands",
-					],
+					default_indicators: ["VOL", "EMA 9", "EMA 11", "CCI", "RSI"],
 					custom_strategies: [],
-					default_strategies: ["2-Touchpoint Break", "3-Touchpoint Break"],
+					default_strategies: [
+						"2-Touchpoint Break",
+						"3-Touchpoint Break",
+						"EMA 9&11",
+					],
 				};
 
 				const { data: newSettings, error: createError } = await supabase
