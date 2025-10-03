@@ -858,7 +858,7 @@ export function TradeDrawerForm({
 									} else if (value?.toLowerCase() === "ema 9&11 scalping") {
 										form.setFieldValue(
 											"notes",
-											`CHECKLIST FOLLOWED [✓|X]:\n- Trendline drawn? [✓|X]\n- EMA check [✓|X]\n- CCI check [✓|X]\n- RSI check[✓|X]\n- High volume? [✓|X]\n- Resistance/ support marked? [✓|X]\n- 1.5+ RR [✓|X]\n\nEntry Criteria:\n\nExit Criteria: [SL/TP/S&R/Divergence]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\nRating: /5\n\n`
+											`CHECKLIST FOLLOWED [✓|X]:\n- Trendline drawn? [✓|X]\n- No consolidation [✓|X]\n- No EMA bumps [✓|X]\n- EMA check [✓|X]\n- CCI check [✓|X]\n- RSI check[✓|X]\n- High volume? [✓|X]\n- Resistance/ support marked? [✓|X]\n- 1.5+ RR [✓|X]\n\nEntry Criteria:\n\nExit Criteria: [SL/TP/S&R/Divergence]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\nRating: /5\n\n`
 										);
 									} else {
 										// Default template for any other strategy
