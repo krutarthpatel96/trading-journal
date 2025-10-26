@@ -860,7 +860,10 @@ export function TradeDrawerForm({
 											"notes",
 											`CHECKLIST FOLLOWED [✓|X]:\n- Not a forced trade [✓|X] \n- Trendline drawn? [✓|X]\n- No consolidation [✓|X]\n- No EMA bumps [✓|X]\n- EMA check [✓|X]\n- CCI check [✓|X]\n- RSI check[✓|X]\n- High volume? [✓|X]\n- Resistance/ support marked? [✓|X]\n- 1:3+ RR [✓|X]\n\nEntry Criteria:\n\nExit Criteria: [SL/TP/S&R/Divergence]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\nRating: /5\n\n`
 										);
-									} else if (value?.toLowerCase() === "supply and demand") {
+									} else if (
+										value?.toLowerCase() === "supply and demand" ||
+										value?.toLowerCase().includes("smc")
+									) {
 										form.setFieldValue(
 											"notes",
 											`CHECKLIST FOLLOWED [✓|X]:\n- Not a forced trade [✓|X] \n- Refined zones? [✓|X]\n- Narrative & Trade on same TF [✓|X]\n- Confirmation [✓|X]\n- Clear trend [✓|X]\n- Liquidity check [✓|X]\n- TF sequence followed (1W -> 1D -> 4h -> 1h -> 15m) [✓|X]\n- 1:3+ RR [✓|X]\n\nRR: 1:\n\n\n\nEntry Criteria:\n\nExit Criteria: [SL/TP]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\n\nRating: /5\n\n`
