@@ -866,7 +866,7 @@ export function TradeDrawerForm({
 									) {
 										form.setFieldValue(
 											"notes",
-											`CHECKLIST FOLLOWED [✓|X]:\n- Not a forced trade [✓|X] \n- Refined zones? [✓|X]\n- Candle pressure check? [✓|X]\n- Narrative [✓|X]\n- Confirmation [✓|X]\n- Clear trend [✓|X]\n- Liquidity check [✓|X]\n- Target check (Swing/Zone) [✓|X]\n- TF sequence followed (1W -> 1D -> 4h -> 1h -> 15m) [✓|X]\n- 1:3+ RR [✓|X]\n\nRR: 1:\n\n\n\nEntry Criteria:\n\nExit Criteria: [SL/TP]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\n\nRating: /5\n\n`
+											`CHECKLIST FOLLOWED [✓|X]:\n- Bias [Bull|Bear] \n- Not a forced trade [✓|X] \n- Refined zones? [✓|X]\n- Candle pressure check? [✓|X]\n- Narrative [✓|X]\n- Confirmation [✓|X]\n- Clear trend [✓|X]\n- Liquidity check [✓|X]\n- Target check (Swing/Zone) [✓|X]\n- TF sequence followed (1W -> 1D -> 4h -> 1h -> 15m) [✓|X]\n- 1:3+ RR [✓|X]\n\nRR: 1:\n\n\n\nEntry Criteria:\n\nExit Criteria: [SL/TP]\n\nRisk Management:\n\nTrade Plan:\n\nMistakes:\n\nLessons Learned:\n\nGood:\n\nRating: /5\n\n`
 										);
 									} else {
 										// Default template for any other strategy
